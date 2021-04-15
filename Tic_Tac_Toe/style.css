@@ -32,5 +32,6 @@ body {
 }
 
 .col:hover {
-	background: : #E3DCCC;
+	background: gold;
+	cursor: pointer;
 }
