@@ -4,44 +4,46 @@
 <head>
 	<meta charset="utf-8">
 	<title>TIK TAC TOE</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="CSS/style.css">
 </head>
 <body>
 
 	<!-- 	title -->
 	<h1>Let's play</h1>
-
+<section>
 	<!-- Name for the players -->
 
 	<div id="players">
-		<div class="player1 player active">
-			<span class="player1_name">X</span>: <span>Player 1</span>
+		<div class="player1 player">
+			<span class="player1_play">X</span>: <span>Player 1</span>
 		</div>
 		<div class="player2 player">
-			<span class="player2_name">O</span>: <span>Player 2</span>
+			<span class="player2_play">O</span>: <span>Player 2</span>
 		</div>
 	</div>
 
 	<table id="table_game">
 		<tr>
-			<td class="col"></td>
-			<td class="col"></td>
-			<td class="col"></td>
+			<td id="0" class="col"></td>
+			<td id="1" class="col"></td>
+			<td id="2" class="col"></td>
 		</tr>
 		<tr>
-			<td class="col"></td>
-			<td class="col"></td>
-			<td class="col"></td>
+			<td id="3" class="col"></td>
+			<td id="4" class="col"></td>
+			<td id="5" class="col"></td>
 		</tr>
 		<tr>
-			<td class="col"></td>
-			<td class="col"></td>
-			<td class="col"></td>
+			<td id="6" class="col"></td>
+			<td id="7" class="col"></td>
+			<td id="8" class="col"></td>
 		</tr>
 	</table>
 
-	<script type="text/javascript" src="JS/app.js"></script>
-
+	<h2 class="game--status"></h2>
+        <button class="game--restart">Restart Game</button>
+	<script type="text/javascript" src="app.js"></script>
+</section>
 <p id="demo"></p>
 </body>
 </html>
