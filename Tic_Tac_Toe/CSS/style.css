@@ -33,6 +33,19 @@ section {
     font-size: 40px;
 }
 
+#scoreboard .score {
+  text-align: center;
+  font-size: 30px
+}
+
+#scoreboard .score#player1 {
+  color: #ED676B;
+}
+
+#scoreboard .score#player2 {
+  color: #23916B;
+}
+
 .player {
 	width: 50%;
 	text-align: center;

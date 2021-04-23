@@ -1,6 +1,10 @@
 let cols = document.querySelectorAll(".col")
 const statusDisplay = document.querySelector('.game--status');
 let gameActive = true;
+let scores = {
+    "X": 0,
+    "O": 0,
+}
 let currentPlayer = "X";
 let gameState = ["", "", "", "", "", "", "", "", ""];
 const winningMessage = () => `Player ${currentPlayer} has won!`;
@@ -33,6 +37,16 @@ const winningConditions = [
     [0, 4, 8],
     [2, 4, 6]
 ];
+
+function UpdateScore(X,O){
+    scores[current_player] += 1;
+    document.querySelector('.player'+current_player+'_score').innerHTML = scores[current_player];
+    document.querySelector('.result').innerHTML = "Player " + current_player +" win!";
+    document.querySelector("#scoreboard #player1").innerHTML = "X";
+    document.querySelector("#scoreboard #player2").innerHTML = "O";  
+    updateScoreBoard(current_player) 
+}
+
 function handleResultValidation() {
     let roundWon = false;
     for (let i = 0; i <= 7; i++) {
@@ -51,6 +65,7 @@ function handleResultValidation() {
 if (roundWon) {
         statusDisplay.innerHTML = winningMessage();
         gameActive = false;
+        
         return;
     }
     let roundDraw = !gameState.includes("");
@@ -64,6 +79,14 @@ If we get to here we know that the no one won the game yet,
 and that there are still moves to be played, so we continue by changing the current player.
 */
     handlePlayerChange();
+    
+}
+
+var scoreboard = {"X": 0, "O":0};
+function updateScoreBoard (winner) {
+    if (++scoreboard[winner]==3) {
+        setMessage("Game over! " + winner + " has won three matches");
+    }
 }
 function handleCellClick(clickedCellEvent) {
 /*
@@ -98,6 +121,7 @@ function handleRestartGame() {
     statusDisplay.innerHTML = currentPlayerTurn();
     document.querySelectorAll('.col')
                .forEach(cell => cell.innerHTML = "");
+    updateScore(document.currentPlayer);         
 }
 
 document.querySelectorAll('.col').forEach(cell => cell.addEventListener('click', handleCellClick));
